@@ -1,8 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const { errorHandler } = require('../middlewares/errorHandler'); // Adjusted path
-const routes = require('../routes/index'); // Adjusted path
-const { createServer } = require('@vercel/node');
+const { errorHandler } = require('./middlewares/errorHandler'); 
+const routes = require('./routes/index'); 
 
 const app = express();
 
@@ -15,15 +14,16 @@ app.use(
       allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-
 // Routes
 app.get('/', (req, res) => {
-    res.send("🚀 Hello Fam, I am Amon and this is API for my project!");
-  });
+  res.send("🚀 Hello Fam, I am Amon and this is API for my project!");
+});
 app.use('/api', routes);
 
 // Error handler middleware
 app.use(errorHandler);
 
-// Export as a serverless function
-module.exports = createServer(app);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+
+module.exports = app;
