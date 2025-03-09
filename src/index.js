@@ -23,6 +23,8 @@ app.use('/api', routes);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(3000, () => {
+  console.log("server is running.. 3000");
+});
 
 module.exports = app;
