@@ -1,11 +1,3 @@
-# Express API Starter
-
-How to use this template:
-
-```sh
-npx create-express-api --directory my-api-name
-```
-
 Includes API Server utilities:
 
 * [morgan](https://www.npmjs.com/package/morgan)
