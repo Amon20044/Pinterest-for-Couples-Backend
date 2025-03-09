@@ -5,6 +5,8 @@ const helmet = require('helmet');
 const cors = require('cors');
 const { errorHandler } = require('./middlewares/errorHandler'); 
 const routes = require('./routes/index'); 
+const serverless = require("serverless-http");
+
 require('dotenv').config();
 
 const app = express();
@@ -26,3 +28,4 @@ const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 
 module.exports = app;
+module.exports.handler = serverless(app);
