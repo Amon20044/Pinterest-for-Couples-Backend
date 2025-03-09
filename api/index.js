@@ -17,6 +17,9 @@ app.use(
 );
 
 // Routes
+app.get('/', (req, res) => {
+    res.send("🚀 Hello Fam, I am Amon and this is API for my project!");
+  });
 app.use('/api', routes);
 
 // Error handler middleware
